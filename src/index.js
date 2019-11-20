@@ -1,5 +1,6 @@
 import '@babel/polyfill/noConflict';
 import server from './server';
+import './router';
 
 const port = process.env.PORT || 4000;
 

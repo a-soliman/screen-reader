@@ -27,11 +27,14 @@
     "bcryptjs": "^2.4.3",
     "cross-fetch": "^2.2.2",
     "env-cmd": "^8.0.2",
+    "generate-password": "^1.4.2",
     "graphql": "^14.0.2",
     "graphql-cli": "^2.16.4",
     "graphql-import": "^0.7.1",
     "graphql-yoga": "^1.16.7",
     "jsonwebtoken": "^8.3.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
     "prisma-binding": "^2.1.1"
   },
   "devDependencies": {
