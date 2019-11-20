@@ -2,6 +2,7 @@ type User {
   id: ID! @unique @id
   name: String!
   email: String! @unique
+  avatar: String! @default(value: "no-avatar.jpg")
   password: String!
   updatedAt: DateTime! @updatedAt
   createdAt: DateTime! @createdAt

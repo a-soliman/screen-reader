@@ -6,15 +6,17 @@ import hashPassword from '../utils/hashPassword';
 
 const Mutation = {
   async createUser(parent, args, { prisma }, info) {
-    const { name, email, password } = args.data;
+    const { name, email, password, avatar } = args.data;
 
     const userExists = await prisma.exists.User({ email: email });
     if (userExists) throw new Error('Email taken');
 
+    if (password.length < 8) throw new Error('Password too short');
+
     const hashedPassword = await hashPassword(password);
     const user = await prisma.mutation.createUser({
       data: {
-        name, email, password: hashedPassword
+        name, email, avatar: avatar ? avatar : 'no-avatar.jpg', password: hashedPassword
       }
     });
     const token = generateAuthToken(user.id);

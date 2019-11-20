@@ -26,6 +26,7 @@ type AuthPayload {
 input CreateUserInput {
   name: String!
   email: String!
+  avatar: String
   password: String!
 }
 
@@ -37,6 +38,7 @@ input LoginUserInput {
 input UpdateUserInput {
   name: String
   email: String
+  avatar: String
 }
 
 input UpdateUserPasswordInput {
@@ -50,6 +52,7 @@ type User {
   name: String!
   email: String
   password: String
+  avatar: String
   updatedAt: String!
   createdAt: String!
 }

@@ -1,5 +1,5 @@
 # source: http://localhost:4466/screen-reader/dev
-# timestamp: Tue Nov 19 2019 06:31:21 GMT-0800 (Pacific Standard Time)
+# timestamp: Tue Nov 19 2019 21:05:28 GMT-0800 (Pacific Standard Time)
 
 type AggregateUser {
   count: Int!
@@ -74,6 +74,7 @@ type User implements Node {
   id: ID!
   name: String!
   email: String!
+  avatar: String!
   password: String!
   updatedAt: DateTime!
   createdAt: DateTime!
@@ -92,6 +93,7 @@ type UserConnection {
 input UserCreateInput {
   name: String!
   email: String!
+  avatar: String
   password: String!
 }
 
@@ -111,6 +113,8 @@ enum UserOrderByInput {
   name_DESC
   email_ASC
   email_DESC
+  avatar_ASC
+  avatar_DESC
   password_ASC
   password_DESC
   updatedAt_ASC
@@ -123,6 +127,7 @@ type UserPreviousValues {
   id: ID!
   name: String!
   email: String!
+  avatar: String!
   password: String!
   updatedAt: DateTime!
   createdAt: DateTime!
@@ -170,6 +175,7 @@ input UserSubscriptionWhereInput {
 input UserUpdateInput {
   name: String
   email: String
+  avatar: String
   password: String
 }
 
@@ -302,6 +308,46 @@ input UserWhereInput {
 
   """All values not ending with the given string."""
   email_not_ends_with: String
+  avatar: String
+
+  """All values that are not equal to given value."""
+  avatar_not: String
+
+  """All values that are contained in given list."""
+  avatar_in: [String!]
+
+  """All values that are not contained in given list."""
+  avatar_not_in: [String!]
+
+  """All values less than the given value."""
+  avatar_lt: String
+
+  """All values less than or equal the given value."""
+  avatar_lte: String
+
+  """All values greater than the given value."""
+  avatar_gt: String
+
+  """All values greater than or equal the given value."""
+  avatar_gte: String
+
+  """All values containing the given string."""
+  avatar_contains: String
+
+  """All values not containing the given string."""
+  avatar_not_contains: String
+
+  """All values starting with the given string."""
+  avatar_starts_with: String
+
+  """All values not starting with the given string."""
+  avatar_not_starts_with: String
+
+  """All values ending with the given string."""
+  avatar_ends_with: String
+
+  """All values not ending with the given string."""
+  avatar_not_ends_with: String
   password: String
 
   """All values that are not equal to given value."""

@@ -10,6 +10,7 @@ const createUser = gql`
                 id
                 name
                 email
+                avatar
             }
         }
     }
@@ -21,6 +22,7 @@ const getUsers = gql`
             id
             name
             email
+            avatar
         }
     }
 `
@@ -41,6 +43,7 @@ const getProfile = gql`
             id
             name
             email
+            avatar
         }
     }
 `

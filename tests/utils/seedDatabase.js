@@ -6,7 +6,8 @@ const userOne = {
     input: {
         name: 'Jen',
         email: 'jen@example.com',
-        password: bcrypt.hashSync('Red098!@#$')
+        password: bcrypt.hashSync('Red098!@#$'),
+        avatar: 'test-image.jpg'
     },
     user: undefined,
     jwt: undefined
@@ -16,7 +17,8 @@ const userTwo = {
     input: {
         name: 'Jeff',
         email: 'jeff@example.com',
-        password: bcrypt.hashSync('PassForJeff')
+        password: bcrypt.hashSync('PassForJeff'),
+        avatar: 'profile-jeff.jpg'
     },
     user: undefined,
     jwt: undefined
