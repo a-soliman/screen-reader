@@ -7,11 +7,11 @@
     "test": "env-cmd ./config/test.env jest --watch --runInBand",
     "start": "node dist/index.js",
     "heroku-postbuild": "babel src --out-dir dist --copy-files",
-    "dev": "env-cmd ./config/dev.env nodemon src/index.js --ext js,graphql --exec babel-node",
+    "dev:api": "env-cmd ./config/dev.env nodemon src/index.js --ext js,graphql --exec babel-node",
+    "dev:client": "npm start --prefix client",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "get-schema": "graphql get-schema -p prisma --dotenv config/dev.env",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:changed": "git diff --diff-filter=ACM --name-only -r master | grep '\\.js$' > .jsfiles || true && [ ! -s .jsfiles ] || npx eslint --no-ignore $(<.jsfiles)",
-    "prettier:changed": "git diff --diff-filter=ACM --name-only -r master | grep '\\.js$' > .jsfiles || true && [ ! -s .jsfiles ] || npx prettier $(<.jsfiles) --write",
     "pretest": "eslint --ignore-path .gitignore ."
   },
   "jest": {
@@ -30,8 +30,11 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^5.0.0",
+    "cors": "^2.8.5",
     "cross-fetch": "^2.2.2",
     "env-cmd": "^8.0.2",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "generate-password": "^1.4.2",
     "graphql": "^14.0.2",
     "graphql-cli": "^2.16.4",
@@ -46,9 +49,13 @@
   "devDependencies": {
     "eslint": "^6.6.0",
     "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^4.4.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
-    "jest": "^23.5.0"
+    "install": "^0.13.0",
+    "jest": "^24.9.0",
+    "npm": "^6.13.1"
   }
 }
