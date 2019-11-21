@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "plugins": [ "react" ],
+  "rules": {
+    "block-scoped-var": [ 0 ], // until fixed https://github.com/eslint/eslint/issues/2253
+    "comma-dangle": [ 0 ],
+    "func-names": [ 0 ],
+    "linebreak-style": [ 2, "unix" ],
+    "new-cap": [ 0 ],
+    "no-console": [ 0 ],
+    "no-loop-func": [ 0 ],
+    "no-param-reassign": [ 0 ],
+    "no-trailing-spaces": [ 0 ],
+    "no-unused-expressions" : [ 0 ], // until fixed https://github.com/babel/babel-eslint/issues/158
+    "no-unused-vars": ["warn", { "args": "none" }],
+    "quotes": [ 2, "single" ],
+    "react/prop-types": [ 0 ],
+    "require-atomic-updates": [ "warn" ],
+    "semi": [ 2, "always" ]
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "mocha": true
+  }
+}

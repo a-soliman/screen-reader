@@ -1,4 +1,4 @@
-import getUserId from "../utils/getUserId";
+import getUserId from '../utils/getUserId';
 // Individual fields resolvers takes control after the data is parsed from db
 const User = {
   email: {

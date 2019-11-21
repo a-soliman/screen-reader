@@ -44,7 +44,7 @@ passport.use(new FacebookStrategy({
 },
 async function(accessToken, refreshToken, profile, cb) {
   const { displayName, emails, photos } = profile;
-  if (!emails.length) throw new Error('Email not found')
+  if (!emails.length) throw new Error('Email not found');
   /**
    * 1. TODO :: handle downloading the profile image and hosting it.
    */

@@ -11,7 +11,7 @@ const getUserId = (request, requireAuth=true) => {
     return decoded.userId;
   }
   if (requireAuth) throw new Error('Authentication required');
-  return null
+  return null;
 };
 
 export default getUserId;

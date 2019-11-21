@@ -34,7 +34,7 @@ const Mutation = {
     const isCorrectPassword = await bcrypt.compare(password, user.password);
     if (!isCorrectPassword) throw new Error('Invalid email or password');
     const token = generateAuthToken(user.id);
-    return { user, token }
+    return { user, token };
   },
 
   async deleteUser(parent, args,  { prisma, request }, info) {

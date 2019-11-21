@@ -1,4 +1,4 @@
-import ApolloBoost from 'apollo-boost'
+import ApolloBoost from 'apollo-boost';
 
 const getClient = (jwt) => {
     return new ApolloBoost({
@@ -9,10 +9,10 @@ const getClient = (jwt) => {
                     headers: {
                         Authorization: `Bearer ${jwt}`
                     }
-                })
+                });
             }
         }
-    })
-}
+    });
+};
 
-export { getClient as default }
+export { getClient as default };

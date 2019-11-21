@@ -9,7 +9,7 @@ const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
   context(request) {
-    return { pubsub, prisma, request }
+    return { pubsub, prisma, request };
   },
   fragmentReplacements
 });

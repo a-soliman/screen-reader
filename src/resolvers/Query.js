@@ -1,4 +1,4 @@
-import getUserId from "../utils/getUserId";
+import getUserId from '../utils/getUserId';
 
 const Query = {
   users(parent, args, { prisma, request }, info) {
