@@ -45,7 +45,7 @@ test('Should create a new user with default avatar', async () => {
 test('Should expose public author profiles', async () => {
     const response = await client.query({ query: getUsers });
 
-    expect(response.data.users.length).toBe(2);
+    expect(response.data.users).toHaveLength(2);
     expect(response.data.users[0].email).toBe(null);
     expect(response.data.users[0].name).toBe('Jen');
 });

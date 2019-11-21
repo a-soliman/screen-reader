@@ -10,7 +10,7 @@
       "modules": true
     }
   },
-  "plugins": [ "react" ],
+  "plugins": [ "react", "jest" ],
   "rules": {
     "block-scoped-var": [ 0 ], // until fixed https://github.com/eslint/eslint/issues/2253
     "comma-dangle": [ 0 ],
@@ -26,12 +26,18 @@
     "quotes": [ 2, "single" ],
     "react/prop-types": [ 0 ],
     "require-atomic-updates": [ "warn" ],
-    "semi": [ 2, "always" ]
+    "semi": [ 2, "always" ],
+    // JEST CONFIGURATION
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   },
   "env": {
     "es6": true,
     "node": true,
     "browser": true,
-    "mocha": true
+    "jest/globals": true
   }
 }
