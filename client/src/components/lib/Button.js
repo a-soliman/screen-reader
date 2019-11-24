@@ -1,7 +1,15 @@
 import React from 'react';
 
-const Button = ({ title, onClick, loading, disabled, ...props }) => {
-  return (<button onClick={onClick} {...props}>{title}</button>);
+const Button = ({ children, className, onClick, loading, disabled, ...rest }) => {
+  return (
+    <button
+      className={`button ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+      {...rest}
+      >
+      { loading ? 'Loading...' : children }
+    </button>);
 };
 
 export default Button;
