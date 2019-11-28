@@ -2,21 +2,29 @@
 /** THIS FILE ENCAPSULATE ALL THE UTILS NEEDED FOR AUTHENTICATION */
 
 class AuthUtils {
-  constructor() {}
-
-  setToken(token) {
-    debugger;
+  constructor() {
+    this.isLoggedIn = false;
   }
 
-  isLoggedIn() {}
+  setUserAndToken(token, user) {
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', user);
+    this.isLoggedIn = true;
+  }
 
-  signUp() {}
+  removeTokenAndUser() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.isLoggedIn = false;
+  }
 
-  login() {}
+  getToken() {
+    return localStorage.getItem('token');
+  }
 
-  logout() {}
-
-  getToken() {}
+  getUser() {
+    return localStorage.getItem('user');
+  }
 }
 
 const authUtils = new AuthUtils();
