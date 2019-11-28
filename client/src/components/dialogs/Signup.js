@@ -46,7 +46,10 @@ const SignupDialog = ({ submitHandler, closeDialog }) => {
 
   async function handleSubmitClick() {
     setLoading(true);
-    const res = await submitHandler({ name, email, password });
+    const variables = {
+      data: { name, email, password }
+    };
+    const res = await submitHandler({ variables });
     console.log({ res });
   }
 

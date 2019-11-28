@@ -1,7 +1,12 @@
+/* eslint-disable no-debugger */
 /** THIS FILE ENCAPSULATE ALL THE UTILS NEEDED FOR AUTHENTICATION */
 
 class AuthUtils {
   constructor() {}
+
+  setToken(token) {
+    debugger;
+  }
 
   isLoggedIn() {}
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { useState, useEffect } from 'react';
 import Input from '../lib/Input';
 import Button from '../lib/Button';
@@ -40,8 +41,12 @@ const LoginDialog = ({ submitHandler, closeDialog }) => {
 
   async function handleSubmitClick() {
     setLoading(true);
-    const res = await submitHandler({ email, password });
-    console.log({ res });
+    const variables = {
+      data: { email, password }
+    };
+    const res = await submitHandler({variables});
+    debugger;
+    setLoading(true);
   }
 
   return (
