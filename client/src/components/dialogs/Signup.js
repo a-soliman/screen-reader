@@ -50,7 +50,8 @@ const SignupDialog = ({ submitHandler, closeDialog }) => {
       data: { name, email, password }
     };
     const res = await submitHandler({ variables });
-    console.log({ res });
+    setLoading(false);
+    if (res) closeDialog();
   }
 
   return (

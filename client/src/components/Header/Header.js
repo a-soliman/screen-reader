@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { DialogContext } from '../../contexts/DialogContext';
 import Button from '../lib/Button';
 
 const Header = () => {
-  const { user, signup, login } = useContext(AuthContext);
+  const { user, signup, login, logOut } = useContext(AuthContext);
   const { setDialog } = useContext(DialogContext);
 
   function openSignupDialog() {
@@ -29,8 +29,16 @@ const Header = () => {
         <h4 className="title">Screen Reader</h4>
       </div>
       <div className="right">
-        <Button onClick={openLoginDialog}>Login</Button>
-        <Button onClick={openSignupDialog}>Signup</Button>
+        {
+          !user ? (
+            <Fragment>
+              <Button onClick={openLoginDialog}>Login</Button>
+              <Button onClick={openSignupDialog}>Signup</Button>
+            </Fragment>
+          ) : (
+            <Button onClick={logOut}>Logout</Button>
+          )
+        }
       </div>
     </header>
   );

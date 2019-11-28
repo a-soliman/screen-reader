@@ -1,6 +1,5 @@
 /* eslint-disable no-debugger */
 import React, { useState, useEffect } from 'react';
-import { graphql } from 'react-apollo';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGNUP_MUTATION, LOGIN_MUTATION } from '../utils/graphqlOperations';
 import authUtils from '../utils/authUtils';
@@ -14,7 +13,12 @@ const AuthContextProvider = (props) => {
   const [signup, { data: signupData, loading: signupLoading, error: signupError }] = useMutation(SIGNUP_MUTATION);
   const [login, { data: loginData, loading: loginLoading, error:loginError }] = useMutation(LOGIN_MUTATION);
 
-  console.log({ loginData, loginError, loginLoading });
+  useEffect(() => {
+    if (authUtils.isLoggedIn) {
+      const user = authUtils.getUser();
+      setUser(user);
+    }
+  }, []);
 
   useEffect(() => {
     if ( signupLoading || loginLoading ) {
@@ -31,13 +35,14 @@ const AuthContextProvider = (props) => {
       let key = signupData ? 'createUser' : 'login';
       const { user, token } = dataSource[key];
       setUser(user);
-      authUtils.setToken(token);
+      authUtils.setUserAndToken(token, user);
     }
   }, [signupLoading, loginLoading, signupError, loginError, signupData, loginData]);
 
-  const logOut = () => { console.log('SignOut was called from context.'); };
-
-  const handleGraphqlErrors = err => setErrors(err.graphQLErrors);
+  const logOut = () => {
+    authUtils.removeTokenAndUser();
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, signup, logOut }}>

@@ -4,11 +4,12 @@
 class AuthUtils {
   constructor() {
     this.isLoggedIn = false;
+    if (localStorage.getItem('token')) this.isLoggedIn = true;
   }
 
   setUserAndToken(token, user) {
     localStorage.setItem('token', token);
-    localStorage.setItem('user', user);
+    localStorage.setItem('user', JSON.stringify(user));
     this.isLoggedIn = true;
   }
 

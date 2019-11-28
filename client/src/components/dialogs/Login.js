@@ -45,8 +45,8 @@ const LoginDialog = ({ submitHandler, closeDialog }) => {
       data: { email, password }
     };
     const res = await submitHandler({variables});
-    debugger;
-    setLoading(true);
+    setLoading(false);
+    if (res) closeDialog();
   }
 
   return (
